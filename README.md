@@ -13,8 +13,11 @@ Akima補間アルゴリズムの実装とインタラクティブデモを提供
 ├── Homework/                  # Python実装と可視化スクリプト（ローカル検証用）
 │   ├── akima_interpolation.py # Akima補間のコア実装
 │   └── visualize.py           # 補間手法の比較可視化
-├── index.html                 # インタラクティブWebデモ（GitHub Pagesで公開）
-├── app.js                     # WebデモのJavaScript制御コード
+├── index.html                 # Webデモのマークアップ（シェル）
+├── styles.css                 # Webデモのスタイル（CSS）
+├── theme.js                   # テーマ切り替え・Lucide初期化
+├── background.js              # Three.js 背景パーティクル
+├── app.js                     # Pyodide・グラフ・UI操作のメインロジック
 ├── akima_interpolation.py     # ブラウザ用Akima補間実装（Pyodideから読み込み）
 ├── visualize.py               # ブラウザ用可視化関数
 └── README.md                  # このファイル
@@ -31,8 +34,11 @@ Akima補間アルゴリズムの実装とインタラクティブデモを提供
 ### Webデモ（ブラウザ版）
 - **Pyodide**: ブラウザでPythonを実行
 - **Plotly.js**: インタラクティブなグラフ描画
-- **NumPy**: 数値計算（Pyodide経由）
-- **SciPy**: 補間手法の比較（Pyodide経由）
+- **Three.js**: 背景のパーティクル表現（`background.js`）
+- **Lucide**: アイコン（CDN）
+- **NumPy / SciPy**: 数値計算・補間比較（Pyodide経由）
+
+フロントエンドは **HTML/CSS/JavaScript をファイル分割**（`index.html` + `styles.css` + `theme.js` + `app.js` + `background.js`）しており、GitHub の「Languages」バーに表示される割合は、以前のように巨大な埋め込み `<style>` だけが「HTML」として計上されにくくなっています（実際の割合は [Linguist](https://github.com/github-linguist/linguist) の集計方法に依存します）。
 
 ## インストール
 
